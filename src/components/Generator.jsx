@@ -56,7 +56,7 @@ const Generator = () => {
         backgroundColor: toggle && `#${hexCode}`,
       }}
     >
-      <div className="container-2"></div>
+      <div className="container-2">2</div>
 
       <div className="container-3">
         {" "}
