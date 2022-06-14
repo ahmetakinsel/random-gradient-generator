@@ -1,0 +1,65 @@
+.container{
+    display: flex;
+    justify-content: center;
+   /* flex-direction: column;*/
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+.container-2{
+  display: flex;
+ 
+}
+.container-3{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #fff;
+  width: 650px;
+  height:350px;
+  border-radius:10px;
+  background-color: transparent;
+}
+.container-4{
+  display: flex;
+ 
+}
+
+.header {
+  margin:0;
+  margin-bottom:20px;
+  font-size:24px;
+  color:#fff;
+}
+  
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background-color: #adefd1;
+  border-radius: 4px;
+  border: 0;
+  box-sizing: border-box;
+  color: #00203f;
+  cursor: pointer;
+  display: inherit;
+  font-family: "Space Grotesk", -apple-system, system-ui, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 24px;
+  margin: 0;
+  min-height: 56px;
+  min-width: 120px;
+  padding: 14px 14px;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
