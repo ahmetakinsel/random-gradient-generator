@@ -1,5 +1,26 @@
-import "./style.css";
 import React, { useState } from "react";
+import {
+  Container,
+  SelectorWrapper,
+  InputWrapper,
+  HexLabelWrapper,
+} from "./Layout/index";
+import styled from "styled-components";
+
+const Header = styled.h3`
+  font-size: 32px;
+  color: #fff;
+  text-align: center;
+`;
+
+const HexLabel = styled.label``;
+
+const DegreeLabel = styled.label``;
+
+const HexSelector = styled.input`
+  width: 240px;
+  height: 180px;
+`;
 
 const hex = [
   "0",
@@ -22,66 +43,81 @@ const hex = [
 
 const hexCode1 = hex
   .sort(() => Math.random() - 0.5)
-  //hex.length = aynı 2 pattern return eder.
   .join("")
   .slice(0, -10)
   .toString();
+const colorLeft = "#" + hexCode1;
 
 const hexCode2 = hex
   .sort(() => Math.random() - 0.5)
   .join("")
   .slice(0, -10)
   .toString();
+const colorRight = "#" + hexCode2;
 
 const Generator = () => {
-  const [toggle, setToggle] = useState("");
-  const [gradient2, setGradient2] = useState();
+  const [gradients, setGradients] = useState([colorLeft, colorRight]);
+  const [degrees, setDegree] = useState(90);
 
-  const GenerateGradient = () => {
-    setToggle(!toggle);
-
-    /* const hexCode1 = hex
-      .sort(() => Math.random() - 0.5)
-      .join("")
-      .slice(0, -10)
-      .toString();
-
-    return hexCode1;*/
-    return console.log("click");
+  const createGradient = () => {
+    return `linear-gradient(${degrees}deg, #${hexCode1}, #${hexCode2}) `;
   };
 
-  return (
-    <div
-      className="container"
-      style={{
-        backgroundColor: toggle && `#${hexCode1}`,
-      }}
-    >
-      <div className="container-2">2</div>
+  const handleInputColorChange = (index) => (e) => {
+    const newColor = e.target.value;
+    const newColors = gradients.map((gradient, idx) =>
+      idx === index ? newColor : gradient
+    );
+    setGradients(newColors);
+    createGradient();
+  };
 
-      <div className="container-3">
-        {" "}
-        <h1 className="header">Click here to generate a color</h1>
-        <button
-          className="button"
-          type="submit"
-          onClick={() => GenerateGradient()}
-        >
-          🎨
-        </button>
-        <input type="color"></input>
-      </div>
-      <div
-        className="container-4"
-        style={
-          {
-            //backgroundColor: !toggle && `#${hexCode}`,
-          }
-        }
+  const GradientName = createGradient(gradients, degrees);
+
+  // const onDegreeChange = () => {};
+
+  return (
+    <>
+      <Container
+        style={{
+          background: createGradient(),
+        }}
       >
-        3
-      </div>
-    </div>
+        <div>
+          <Header>Random Gradient Generator</Header>
+        </div>
+        <SelectorWrapper>
+          {gradients.map((gradient, idx) => {
+            return (
+              <InputWrapper>
+                <HexSelector
+                  type="color"
+                  name={`color-${idx}`}
+                  value={`${gradient}`}
+                  onInput={handleInputColorChange(idx)}
+                />
+                <HexLabelWrapper>
+                  <HexLabel>{`color-${idx + 1}`}</HexLabel>
+                </HexLabelWrapper>
+              </InputWrapper>
+            );
+          })}
+        </SelectorWrapper>
+        <input
+          type="number"
+          name="degrees"
+          value={degrees}
+          onChange={(e) => setDegree(e.target.value)}
+          min={0}
+          max={360}
+        />
+        <DegreeLabel>Degrees</DegreeLabel>
+
+        <div>
+          <label>{GradientName}</label>
+        </div>
+      </Container>
+    </>
   );
 };
 
