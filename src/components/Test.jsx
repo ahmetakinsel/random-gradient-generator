@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const hex = [
   "0",
@@ -39,16 +39,41 @@ const Generator = () => {
     return `linear-gradient(${degrees}deg, #${hexCode1}, #${hexCode2})`;
   };
 
+  const handleInputColorChange = (e) => {
+    const newColor = e.target.value;
+    const newColors = gradients.map((gradient, idx) =>
+      idx === 1 ? newColor : gradient
+    );
+    setGradients(newColors);
+    createGradient();
+  };
+
+  const onDegreeChange = () => {};
+
   return (
     <>
-      {gradients.map((gradient, index) => {
+      {gradients.map((gradient, idx) => {
         return (
           <div>
-            <input type="color" name={`color-${index}`} value={`${gradient}`} />
-            <label>{`color-${index + 1}`}</label>
+            <input
+              type="color"
+              name={`color-${idx}`}
+              value={`${gradient}`}
+              onInput={handleInputColorChange}
+            />
+            <label>{`color-${idx + 1}`}</label>
           </div>
         );
       })}
+      <input
+        type="number"
+        name="degrees"
+        value={degrees}
+        onChange={(e) => setDegree(e.target.value)}
+        min={0}
+        max={360}
+      />
+      <label>Degrees</label>
       <div
         style={{
           background: createGradient(),
@@ -56,29 +81,10 @@ const Generator = () => {
           height: "300px",
         }}
       >
-        hhh
+        50.dk
       </div>
     </>
   );
-
-  /*return (
-    <div
-      style={{
-                backgroundColor: `linear-gradient(to bottom,  ${hexCode1} 0%,${hexCode2} 100%)`,
-
-      }}
-    >
-      <div
-        style={{
-          backgroundColor: toggle && `#${hexCode2}`,
-        }}
-      ></div>
-
-      <button type="submit" onClick={() => GenerateGradient()}>
-        Click Me
-      </button>
-    </div>
-  );*/
 };
 
 export default Generator;
