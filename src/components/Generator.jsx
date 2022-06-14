@@ -20,7 +20,7 @@ const hex = [
   "F",
 ];
 
-const hexCode = hex
+const hexCode1 = hex
   .sort(() => Math.random() - 0.5)
   //hex.length = aynı 2 pattern return eder.
   .join("")
@@ -34,26 +34,27 @@ const hexCode2 = hex
   .toString();
 
 const Generator = () => {
-  const [toggle, setToggle] = useState();
+  const [toggle, setToggle] = useState("");
+  const [gradient2, setGradient2] = useState();
 
   const GenerateGradient = () => {
-    setToggle(!toggle, `#${hexCode}`);
-    //setToggle2(!toggle);
+    setToggle(!toggle);
 
-    const hexCode1 = hex
+    /* const hexCode1 = hex
       .sort(() => Math.random() - 0.5)
       .join("")
       .slice(0, -10)
       .toString();
 
-    return hexCode1;
+    return hexCode1;*/
+    return console.log("click");
   };
 
   return (
     <div
       className="container"
       style={{
-        backgroundColor: toggle && `#${hexCode}`,
+        backgroundColor: toggle && `#${hexCode1}`,
       }}
     >
       <div className="container-2">2</div>
@@ -68,6 +69,7 @@ const Generator = () => {
         >
           🎨
         </button>
+        <input type="color"></input>
       </div>
       <div
         className="container-4"
@@ -76,7 +78,9 @@ const Generator = () => {
             //backgroundColor: !toggle && `#${hexCode}`,
           }
         }
-      ></div>
+      >
+        3
+      </div>
     </div>
   );
 };

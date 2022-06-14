@@ -8,6 +8,7 @@
 }
 .container-2{
   display: flex;
+
  
 }
 .container-3{
@@ -19,10 +20,12 @@
   width: 650px;
   height:350px;
   border-radius:10px;
-  background-color: transparent;
+  background-color: transparent;  
 }
 .container-4{
   display: flex;
+
+
  
 }
 
