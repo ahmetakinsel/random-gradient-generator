@@ -4,7 +4,10 @@ import {
   SelectorWrapper,
   InputWrapper,
   HexLabelWrapper,
+  ButtonWrapper,
+  DegreeWrapper,
 } from "./Layout/index";
+import Button from "./Button/Button";
 import styled from "styled-components";
 import { AiFillDelete } from "react-icons/ai";
 
@@ -19,8 +22,8 @@ const HexLabel = styled.label``;
 const DegreeLabel = styled.label``;
 
 const HexSelector = styled.input`
-  width: 200px;
-  height: 60px;
+  width: 180px;
+  height: 50px;
   box-shadow: 1px 0px 73px 0px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 1px 0px 73px 0px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 1px 0px 73px 0px rgba(0, 0, 0, 0.4);
@@ -67,6 +70,15 @@ const Generator = () => {
   const [gradients, setGradients] = useState(hexes);
   const [degrees, setDegree] = useState(90);
 
+  const randomHexGenerator = () => {
+    const hexCode = hex
+      .sort(() => Math.random() - 0.5)
+      .join("")
+      .slice(0, -10)
+      .toString();
+    return "#" + hexCode;
+  };
+
   const createGradient = () => {
     return `linear-gradient(${degrees}deg, #${hexCode1}, #${hexCode2}) `;
   };
@@ -79,15 +91,6 @@ const Generator = () => {
     );
     setGradients(newColors);
     createGradient();
-  };
-
-  const randomHexGenerator = () => {
-    const hexCode = hex
-      .sort(() => Math.random() - 0.5)
-      .join("")
-      .slice(0, -10)
-      .toString();
-    return "#" + hexCode;
   };
 
   const addColor = () => {
@@ -137,22 +140,24 @@ const Generator = () => {
             );
           })}
         </SelectorWrapper>
-        <input
-          type="number"
-          name="degrees"
-          value={degrees}
-          onChange={(e) => setDegree(e.target.value)}
-          min={0}
-          max={360}
-        />
-        <DegreeLabel>Degrees</DegreeLabel>
+        <DegreeWrapper>
+          <DegreeLabel>Degrees</DegreeLabel>
+          <input
+            type="number"
+            name="degrees"
+            value={degrees}
+            onChange={(e) => setDegree(e.target.value)}
+            min={0}
+            max={360}
+          />
+        </DegreeWrapper>
 
         <div>
           <label>{gradientName}</label>
         </div>
-        <div>
-          <button onClick={() => addColor()}>Add Color</button>
-        </div>
+        <ButtonWrapper>
+          <Button title="Add Color" onClick={() => addColor()} />
+        </ButtonWrapper>
       </Container>
     </>
   );

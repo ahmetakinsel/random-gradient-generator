@@ -30,3 +30,13 @@ export const GradientDisplayer = styled.div`
   display: flex;
   align-items: center;
 `;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const DegreeWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
