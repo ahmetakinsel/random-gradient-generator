@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  height: 100vh;
+  min-height: 100vh; //make it full screen
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -12,13 +12,23 @@ export const SelectorWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 10px;
+  padding: 20px;
 `;
 
+export const InputContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 export const InputWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
+  background-color: #fff;
+  flex-direction: column;
+  width: 150px;
+  height: 125px;
 `;
 
 export const HexLabelWrapper = styled.div`
@@ -34,9 +44,12 @@ export const GradientDisplayer = styled.div`
 export const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
+  padding: 20px;
 `;
 
 export const DegreeWrapper = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 20px;
 `;
