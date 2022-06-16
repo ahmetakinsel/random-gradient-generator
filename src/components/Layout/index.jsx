@@ -21,7 +21,7 @@ export const InputContainer = styled.div`
   align-items: center;
 `;
 export const InputWrapper = styled.div`
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
@@ -29,7 +29,7 @@ export const InputWrapper = styled.div`
   flex-direction: column;
   width: 130px;
   height: 115px;
-  border-radius: 15px;
+  border-radius: 10px; */
 `;
 
 export const HexLabelWrapper = styled.div`

@@ -7,10 +7,12 @@ import {
   HexLabelWrapper,
   ButtonWrapper,
   DegreeWrapper,
-} from "./Layout/index";
-import Button from "./Button/Button";
+} from "../Layout/index";
+import Button from "../Button/Button";
 import styled from "styled-components";
 import { AiFillDelete } from "react-icons/ai";
+import { HexColorPicker } from "react-colorful";
+import "./test.css";
 
 const Header = styled.h3`
   font-size: 32px;
@@ -38,9 +40,7 @@ const HexSelector = styled.input`
 
 const DegreeSelect = styled.input`
   width: 75px;
-  height: 35px;
-  border-radius: 10px;
-  border: none;
+  height: 50px;
 `;
 
 const DeleteIcon = styled(AiFillDelete)`
@@ -86,7 +86,7 @@ const secondColor = "#" + hexCode2;
 
 const hexes = [firstColor, secondColor];
 
-const Generator = () => {
+const TestComponent = () => {
   const [gradients, setGradients] = useState(hexes);
   const [degrees, setDegree] = useState(90);
 
@@ -110,6 +110,7 @@ const Generator = () => {
       idx === index ? newColor : gradient
     );
     setGradients(newColors);
+    console.log(newColors, "ss");
     createGradient();
   };
 
@@ -120,6 +121,8 @@ const Generator = () => {
     setGradients(gradients.filter((gradient, index) => index !== idx));
   };
   const gradientName = createGradient(gradients, degrees);
+
+  // const onDegreeChange = () => {};
 
   return (
     <>
@@ -135,16 +138,13 @@ const Generator = () => {
           {gradients.map((gradient, idx) => {
             return (
               <InputContainer>
-                <InputWrapper>
-                  <HexSelector
+                <div className="custom-layout example">
+                  <HexColorPicker
+                    color={gradient}
                     type="color"
                     name={`color-${idx}`}
                     value={`${gradient}`}
-                    onInput={(e) => {
-                      handleInputColorChange(idx);
-                      // console.log(e.target.value);
-                      // setGradients(e.target.value);
-                    }}
+                    //onChange={handleInputColorChange(idx)}
                   />
                   <HexLabelWrapper>
                     <HexLabel>
@@ -159,7 +159,7 @@ const Generator = () => {
                       onClick={removeColor(idx)}
                     />
                   </HexLabelWrapper>
-                </InputWrapper>
+                </div>
               </InputContainer>
             );
           })}
@@ -187,4 +187,4 @@ const Generator = () => {
   );
 };
 
-export default Generator;
+export default TestComponent;
