@@ -27,8 +27,9 @@ export const InputWrapper = styled.div`
   gap: 5px;
   background-color: #fff;
   flex-direction: column;
-  width: 150px;
-  height: 125px;
+  width: 130px;
+  height: 115px;
+  border-radius: 15px;
 `;
 
 export const HexLabelWrapper = styled.div`
