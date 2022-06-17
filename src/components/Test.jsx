@@ -39,7 +39,7 @@ const HexSelector = styled.input`
 
 const DegreeSelect = styled.input`
   width: 75px;
-  height: 50px;
+  height: 30px;
 `;
 
 const DeleteIcon = styled(AiFillDelete)`
