@@ -28,13 +28,12 @@ export const InputWrapper = styled.div`
   flex-direction: column;
   width: 130px;
   height: 115px;
-  border-radius: 10px; */ */
+  border-radius: 10px; */
 `;
 
-export const HexLabelWrapper = styled.div`
+export const HexButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
-  padding: 5px;
   align-items: center;
 `;
 
