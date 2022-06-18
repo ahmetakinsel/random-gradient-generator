@@ -89,8 +89,6 @@ const hexes = [firstColor, secondColor];
 
 const Generator = () => {
   const [gradients, setGradients] = useState(hexes);
-  console.log(hexes, "hexes");
-  console.log(gradients, "gradient");
   const [degrees, setDegree] = useState(90);
   const [showColorPicker, setShowColorPicker] = useState(false);
 
@@ -144,52 +142,36 @@ const Generator = () => {
             return (
               <InputContainer>
                 <InputWrapper>
-                  <HexColorPicker
+                  {/* <HexColorPicker
                     color={gradient}
                     type="color"
                     name={`color-${idx}`}
                     value={`${gradient}`}
                     onChange={handleInputColorChange(idx)}
-                  />
+                  /> */}
                   <HexButtonWrapper>
-                    <Wrapper
-                      style={
-                        {
-                          //flexDirection: showColorPicker ? "row" : "column",
-                        }
-                      }
+                    {showColorPicker && (
+                      <HexColorPicker
+                        color={gradient}
+                        name={`color-${idx}`}
+                        value={`${gradient}`}
+                        onChange={handleInputColorChange(idx)}
+                      />
+                    )}
+                    <HexButton
+                      showColorPicker={showColorPicker}
+                      onClick={handleShowColorPicker}
                     >
-                      {showColorPicker && (
-                        <>
-                          <HexColorPicker
-                            color={gradient}
-                            type="color"
-                            name={`color-${idx}`}
-                            value={`${gradient}`}
-                            onChange={handleInputColorChange(idx)}
-                          />
-                        </>
-                      )}
-                      <HexButton
-                        showColorPicker={showColorPicker}
-                        style={
-                          {
-                            // background: createGradients(),
-                          }
-                        }
-                        onClick={handleShowColorPicker}
-                      >
-                        {idx === 0 ? `#${hexCode1}` : `#${hexCode2}`}
-                        <DeleteIcon
-                          style={{
-                            width: "30px",
-                            height: "18px",
-                            cursor: "pointer",
-                          }}
-                          onClick={removeColor(idx)}
-                        />
-                      </HexButton>
-                    </Wrapper>
+                      {idx === 0 ? `#${hexCode1}` : `#${hexCode2}`}
+                      <DeleteIcon
+                        style={{
+                          width: "30px",
+                          height: "18px",
+                          cursor: "pointer",
+                        }}
+                        onClick={removeColor(idx)}
+                      />
+                    </HexButton>
                   </HexButtonWrapper>
                 </InputWrapper>
               </InputContainer>

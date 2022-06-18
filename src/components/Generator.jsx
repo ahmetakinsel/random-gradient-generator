@@ -68,8 +68,6 @@
 //   "F",
 // ];
 
-// //Refactor
-
 // const hexCode1 = hex
 //   .sort(() => Math.random() - 0.5)
 //   .join("")
@@ -104,7 +102,7 @@
 //   };
 
 //   const handleInputColorChange = (index) => (e) => {
-//     // function that return function to reach inside the .map()
+//     //function that return function to reach inside the .map()
 //     const newColor = e.target.value;
 //     const newColors = gradients.map((gradient, idx) =>
 //       idx === index ? newColor : gradient
@@ -142,9 +140,8 @@
 //                     value={`${gradient}`}
 //                     onInput={(e) => {
 //                       handleInputColorChange(idx);
-//                       // console.log(e.target.value);
-//                       //onChange={handleInputColorChange(idx)}
-//                       // setGradients(e.target.value);
+//                       console.log(e.target.value);
+//                       setGradients(e.target.value);
 //                     }}
 //                   />
 //                   <HexLabelWrapper>
