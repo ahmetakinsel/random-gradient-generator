@@ -127,6 +127,10 @@ const Generator = () => {
     setShowColorPicker(!showColorPicker);
   };
 
+  const changeBackgroundColor = () => {
+    setGradients();
+  };
+
   return (
     <>
       <Container
@@ -162,6 +166,7 @@ const Generator = () => {
                       showColorPicker={showColorPicker}
                       onClick={handleShowColorPicker}
                     >
+                      {/* Button background should be same color with hexcode */}
                       {idx === 0 ? `#${hexCode1}` : `#${hexCode2}`}
                       <DeleteIcon
                         style={{
@@ -195,6 +200,7 @@ const Generator = () => {
         </div>
         <ButtonWrapper>
           <Button title="Add Color" onClick={() => addColor()} />
+          <Button title="Generate" onClick={() => changeBackgroundColor()} />
         </ButtonWrapper>
       </Container>
     </>

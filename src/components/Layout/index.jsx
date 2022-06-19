@@ -53,6 +53,7 @@ export const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   padding: 20px;
+  gap: 10px;
 `;
 
 export const DegreeWrapper = styled.div`
