@@ -12,12 +12,9 @@ export const DegreeSelect = styled.input`
 export const DegreeLabel = styled.label`
   font-size: 18px;
   margin-right: 10px;
-  transform: translateY(-50%);
-  transition: 0.1s ease-out;
-  transform-origin: left top;
-  pointer-events: none;
 `;
 export const GradientDisplayer = styled.label`
   font-size: 18px;
   margin-right: 10px;
+  color: #fff;
 `;
