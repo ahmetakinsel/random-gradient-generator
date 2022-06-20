@@ -68,8 +68,6 @@ const hex = [
   "F",
 ];
 
-//Refactor
-
 const hexCode1 = hex
   .sort(() => Math.random() - 0.5)
   .join("")
