@@ -1,5 +1,4 @@
 import Generator from "./components/Generator";
-import Test from "./components/Test";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -14,7 +13,7 @@ function App() {
     <>
       <GlobalStyle />
       <div className="App">
-        <Test />
+        <Generator />
       </div>
     </>
   );
