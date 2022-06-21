@@ -1,0 +1,23 @@
+
+  @media only screen and (min-device-width: 360px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+    .color .react-colorful {
+      width: 100px;
+      height: 100px;
+      }
+  }
+
+  .color .react-colorful__saturation {
+    border-radius: 4px 4px 0 0;
+
+
+  }
+  .color .react-colorful__hue {
+    height: 15px;
+  }
+  .color .react-colorful__hue-pointer {
+    width: 25px;
+    height: 25px;
+    border-radius:100%;
+  }
+
+  

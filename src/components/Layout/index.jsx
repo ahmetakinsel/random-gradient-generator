@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  min-height: 100vh; //make it full screen
+  min-height: 100vh;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -24,17 +24,6 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-`;
-export const InputWrapper = styled.div`
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  /* gap: 5px;
-  background-color: #fff;
-  flex-direction: column;
-  width: 130px;
-  height: 115px;
-  border-radius: 10px; */
 `;
 
 export const HexButtonWrapper = styled.div`
