@@ -22,7 +22,7 @@ const Header = styled.h3`
   font-size: 32px;
   color: #fff;
   text-align: center;
-  margin: 0;
+  margin: 0 0 20px 0;
 `;
 
 const HexButton = styled.button`
@@ -37,7 +37,6 @@ const HexButton = styled.button`
 
   ${(props) => css`
     width: ${props.showColorPicker && "100%"};
-    height: ${props.showColorPicker && "100%"};
     background-color: ${props.colour};
     margin-top: ${props.showColorPicker && "3px"};
   `};
@@ -137,7 +136,7 @@ const Generator = () => {
         }}
       >
         <div>
-          <Header>Random Gradient Generator</Header>
+          <Header>Random Gradient Background Generator</Header>
         </div>
         <SelectorWrapper>
           {gradients.map((gradient, idx) => {
